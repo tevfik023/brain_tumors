@@ -5,17 +5,37 @@ You can use the YOLOv11 model (colab) in your work !
 YOLOv11 segmentation re-implementation using PyTorch
 
 ### Installation
+NOTE: To make it easier for us to manage datasets, images and models we create a HOME constant.
+```
+import os
+HOME = os.getcwd()
+print(HOME)
+```
+Install YOLO11 via Ultralytics
+```
+%pip install ultralytics supervision roboflow
+```
+Validate a model's accuracy on the COCO dataset's val or test splits. The latest YOLO11 models are downloaded automatically the first time they are used. See YOLO11 Val Docs for more information.
 
 ```
-conda create -n YOLO python=3.10.10
-conda activate YOLO
-conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
-pip install opencv-python
-pip install PyYAML
-pip install tqdm
+# Download COCO val
+import torch
+torch.hub.download_url_to_file('https://ultralytics.com/assets/coco2017val.zip', 'tmp.zip')  # download (780M - 5000 images)
+!unzip -q tmp.zip -d datasets && rm tmp.zip  # unzip
 ```
+# Validate YOLO11n on COCO8 val
+```
+!yolo val model=yolo11n.pt data=coco8.yaml
+```
+#Data
+```
+!mkdir {HOME}/datasets
+%cd {HOME}/datasets
 
-
+project = rf.workspace("***").project("brain-segment")
+version = project.version(*)
+dataset = version.download("yolov11")
+```
 
 ### Train
 
@@ -27,6 +47,14 @@ pip install tqdm
 * Configure your dataset path in `main.py` for testing
 * Run `python main.py --test` for testing
 
+Custom Training
+![image](https://github.com/user-attachments/assets/3bdd9425-7da7-4dca-a71b-8080d466ba62)
+
+```
+%cd {HOME}
+
+!yolo task=detect mode=train model=yolo11s.pt data={dataset.location}/data.yaml epochs=10 imgsz=640 plots=True
+```
 
 
 #### Reference
