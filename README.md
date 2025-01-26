@@ -55,12 +55,34 @@ Custom Training
 
 !yolo task=detect mode=train model=yolo11s.pt data={dataset.location}/data.yaml epochs=10 imgsz=640 plots=True
 ```
+Confusion Matrix
+```
+from IPython.display import Image as IPyImage
+
+IPyImage(filename=f'{HOME}/runs/segment/train/confusion_matrix.png', width=600)
+```
+Result Graph
+```
+IPyImage(filename=f'{HOME}/runs/segment/train/results.png', width=600)
+
+```
+![image](https://github.com/user-attachments/assets/faa74684-c955-4d38-89a8-569842c82353)
+
+### Image Testing
+```
+IPyImage(filename=f'{HOME}/runs/segment/train/val_batch0_pred.jpg', width=600)
+
+```
+
+![image](https://github.com/user-attachments/assets/1c187fcb-0a57-407a-9b04-c8ed04dd132c)
 
 
 #### Reference
 
 * https://github.com/ultralytics/ultralytics
 
+##Download YOLOv11 Segmentation Colab Files
+##Download Brain Tumors Data Files
 
 ## CITATION
 
