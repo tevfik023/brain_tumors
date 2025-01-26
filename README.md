@@ -72,5 +72,5 @@ If you want to use the brain dataset and YOLOv11 model of the study on this gith
 2. Text stating that you have met the citation requirements in your study
 
 mail:
-mtagdas@munzur.edu.tr
+mtagdas@munzur.edu.tr &
 ademkorkmaz@bandirma.edu.tr
