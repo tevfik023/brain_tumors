@@ -55,7 +55,7 @@ Custom Training
 ```
 %cd {HOME}
 
-!yolo task=detect mode=train model=yolo11s.pt data={dataset.location}/data.yaml epochs=10 imgsz=640 plots=True
+!yolo task=detect mode=train model=yolo11s-seg.pt data={dataset.location}/data.yaml epochs=10 imgsz=640 plots=True
 ```
 Confusion Matrix
 ```
