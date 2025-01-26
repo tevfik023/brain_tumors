@@ -2,6 +2,8 @@
 You can use the YOLOv11 model (colab) in your work !
 
 
+We have prepared special yolov11 segmentation model file for Brain Tumor segmentation.
+
 YOLOv11 segmentation re-implementation using PyTorch
 
 ### Installation
